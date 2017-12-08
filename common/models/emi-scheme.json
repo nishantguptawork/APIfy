@@ -1,0 +1,40 @@
+{
+  "name": "EmiScheme",
+  "base": "PersistedModel",
+  "properties": {
+    "bank": {
+      "type": "string",
+      "required": true,
+      "id": true
+    }
+  },
+  "methods": {},
+  "relations": {
+    "tenures": {
+      "type": "hasMany",
+      "model": "Tenure",
+      "foreignKey": "bank"
+    }
+  },
+  "mixins": {
+    "Import": [
+      {
+        "pK": "Lender",
+        "method": "loadCsv",
+        "map": {
+          "bank": "Lender"
+        },
+        "relations": {
+          "tenures": {
+            "type": "link",
+            "where": {
+              "months": "Tenure",
+              "rate": "Rate",
+              "amount": "Minimum"
+            }
+          }
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Tenure",
+    "base": "PersistedModel",
+    "properties": {
+        "months": {
+            "type": "Number"
+        },
+        "rate": {
+            "type": "Number"
+        },
+        "amount": {
+            "type": "Number"
+        }
+    },
+    "methods": {}
+}
